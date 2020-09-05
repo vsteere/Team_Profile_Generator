@@ -1,4 +1,4 @@
-// TODO: Write code to define and export the Engineer class.  HINT: This class should inherit from Employee.
+//Engineer subclass that pulls from employee
 const Employee = require("./Employee");
 
 module.exports=class Engineer extends Employee {

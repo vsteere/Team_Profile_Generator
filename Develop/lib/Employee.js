@@ -1,4 +1,4 @@
-
+//base class constructor from which other classes will be extended
 class Employee {
     constructor(name, id, email) {
         this.name = name;
