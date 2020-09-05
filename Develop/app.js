@@ -12,8 +12,9 @@ const render = require("./lib/htmlRenderer");
 
 let members = [];
 
-
+//main function to create the team profile
 function createTeam() {
+    
     inquirer.prompt([
         { type: "list", name: "chooseRole", message: "Choose type of employee", choices: ["manager", "intern", "engineer", "none"] }
 
@@ -33,7 +34,7 @@ function createTeam() {
             case "engineer":
                 addEngineer()
                 break
-
+//this is the ending option that will run the function to create the directory and html file
             default: build()
 
         }
@@ -42,7 +43,7 @@ function createTeam() {
 
 
 }
-
+//function for manager subclass
 function addManager() {
     inquirer.prompt([
         {
@@ -71,6 +72,7 @@ function addManager() {
         .then(response => {
             let manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerNumber)
             members.push(manager);
+            //this is a check to see if the data is pushing to array as intended
             console.log(members);
             createTeam()
 
@@ -79,7 +81,7 @@ function addManager() {
         }
         )
 }
-
+//function for intern subclass
 function addIntern() {
     inquirer.prompt([
         {
@@ -115,7 +117,7 @@ function addIntern() {
         }
         )
 }
-
+//function for engineer subclass
 function addEngineer() {
     inquirer.prompt([
         {
@@ -151,13 +153,16 @@ function addEngineer() {
         }
         )
 }
-
+//function to build the directory and file
 function build() {
+    //conditional statement that checks if the output directory has been created
     if(!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
 
     }
+    //validation of dir and path variables
 console.log(OUTPUT_DIR, outputPath)
+//this writes the html file
 fs.writeFileSync(outputPath, render(members), "utf-8")
 
 }
