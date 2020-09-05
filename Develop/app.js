@@ -74,6 +74,7 @@ function addManager() {
             members.push(manager);
             //this is a check to see if the data is pushing to array as intended
             console.log(members);
+            //this has to be here to keep rerunning the function; otherwise it will only have one iteration
             createTeam()
 
 
