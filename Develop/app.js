@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
+//creating a new array to which all input data will be pushed
 let members = [];
 
 //main function to create the team profile
@@ -74,7 +74,7 @@ function addManager() {
             members.push(manager);
             //this is a check to see if the data is pushing to array as intended
             console.log(members);
-            //this has to be here to keep rerunning the function; otherwise it will only have one iteration
+            //this has to be here to keep rerunning the function; otherwise it will only have one iteration. This will be at the end of all three role functions
             createTeam()
 
 
@@ -82,7 +82,7 @@ function addManager() {
         }
         )
 }
-//function for intern subclass
+//function to get input data for intern subclass
 function addIntern() {
     inquirer.prompt([
         {
